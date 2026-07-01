@@ -8,20 +8,18 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  ActivityIndicator,
-  SafeAreaViewBase,
-  SafeAreaView
+  ActivityIndicator
 } from "react-native";
 
 
 const Formulario = () => {
     const USUARIO_CORRECTO = "Flechita 2.0";
     const CONTRASENA_CORRECTA = "soyelmejorprofe";
-    const [usuario, setUsuario] = useState<string>("");
-    const [contrasena, setContrasena] = useState<string>("");
-    const [cargando, setCargando] = React.useState(false);   
-    const [error, setError] = React.useState(false);
-    const [login, setLogin] = React.useState(false); 
+    const [usuario, setUsuario] = useState("");
+    const [contrasena, setContrasena] = useState("");
+    const [cargando, setCargando] = useState(false);
+    const [error, setError] = useState(false);
+    const [login, setLogin] = useState(false);
     
     const Login =() => {
         setCargando(true);
@@ -39,40 +37,34 @@ const Formulario = () => {
     }, 1000);
     }
 
-     if (login) {
-    return (
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Login App (Apellido, Apellido)</Text>
-        </View>
-        <View style={styles.container}>
-          <Text style={styles.successText}>¡Bienvenido, {usuario}!</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setLogin(false);
-              setUsuario("");
-              setContrasena("");
-            }}
-          >
-            <Text style={styles.buttonText}>Cerrar sesión</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-    );
-  }
+    if (login) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.successText}>
+        ¡Bienvenido, {usuario}!
+      </Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setLogin(false);
+          setUsuario("");
+          setContrasena("");
+        }}
+      >
+        <Text style={styles.buttonText}>Cerrar sesión</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
  
   return (
-    <SafeAreaView style={styles.safeArea}>
-      {/* Header morado */}
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Login App (Apellido, Apellido)</Text>
-      </View>
  
       <View style={styles.container}>
         {/* Logo */}
         <Image
-          source={require("./assets/logo.png")}
+          source={require("./logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -122,15 +114,10 @@ const Formulario = () => {
           <Text style={styles.linkText}>Crear Cuenta</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
   );
 };
- 
+
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
  
   // ── Header ──────────────────────────────────────────────
   header: {
@@ -146,20 +133,21 @@ const styles = StyleSheet.create({
   },
  
   // ── Contenedor principal ─────────────────────────────────
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
-    paddingHorizontal: 32,
-  },
+container: {
+  flex: 1,
+  alignItems: "center",
+  justifyContent: "flex-start",
+  backgroundColor: "#fff",
+  paddingHorizontal: 32,
+  paddingTop: 70,
+},
  
   // ── Logo ─────────────────────────────────────────────────
   logo: {
-    width: 200,
-    height: 100,
-    marginBottom: 40,
-  },
+  width: 280,
+  height: 160,
+  marginBottom: 25,
+},
  
   // ── Inputs ───────────────────────────────────────────────
   input: {

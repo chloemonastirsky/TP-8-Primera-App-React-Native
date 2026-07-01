@@ -1,10 +1,20 @@
-import Header from "./Header";
-import Formulario from "./Formulario";
-import { SafeAreaView } from "react-native";    
+import React from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+import Header from "./components/Header";
+import Formulario from "./components/Formulario";
 
-const App = () => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <Header />
-    <Formulario />
-  </SafeAreaView>
-);
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Header />
+      <Formulario />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+});

@@ -1,4 +1,3 @@
-import React, { use, useEffect } from "react";  
 import { useState } from "react";
 import {
   View,
